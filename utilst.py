@@ -17,4 +17,3 @@ with fitz.open("test.pdf") as doc:
     text = doc[39].get_text()
     text = del_tire(text)
     print(text)
-text
