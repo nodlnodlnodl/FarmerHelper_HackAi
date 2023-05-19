@@ -18,5 +18,4 @@ with pdfplumber.open('atlas.pdf') as pdf:
             clean_text_str = re.sub(r'\n.*', '', clean_text_str)
             list_text.append(clean_text_str)
     print(list_text)
-
     # clean_text_list = clean_text_str.split('\n')
