@@ -72,4 +72,3 @@ def parse_of_red_book(name):
     sleep(5)
 
 
-parse_of_daylight_hours('Республика Кабардино-Балкария')
