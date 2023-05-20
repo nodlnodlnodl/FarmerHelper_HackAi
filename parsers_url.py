@@ -50,10 +50,9 @@ def parse_of_daylight_hours(region):
         mysum = datetime.timedelta()
         for _ in all_rows:
             day_length = _.findAll('td')[4].text
-            day_length = day_length[0:6]
+            day_length = day_length[0:5]
             print(day_length)
             h, m = day_length.split(':')
-
             d = datetime.timedelta(hours=int(h), minutes=int(m))
             mysum += d
             days = mysum.days
@@ -73,4 +72,4 @@ def parse_of_red_book(name):
     sleep(5)
 
 
-parse_of_daylight_hours('Мурманская область')
+parse_of_daylight_hours('Республика Кабардино-Балкария')
