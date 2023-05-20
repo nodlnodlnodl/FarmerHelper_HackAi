@@ -1,2 +1,4 @@
 pdfplumber
 pymupdf
+bs4
+requests
