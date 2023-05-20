@@ -26,6 +26,7 @@ def title_platns():
                 list_text.append(clean_text_str)
         return list_text
 
+
 def insert_varible_into_table(name):
     try:
         sqlite_connection = sl.connect('DB1.db')
@@ -48,3 +49,6 @@ def insert_varible_into_table(name):
             print("Соединение с SQLite закрыто")
             
     # clean_text_list = clean_text_str.split('\n')
+
+
+

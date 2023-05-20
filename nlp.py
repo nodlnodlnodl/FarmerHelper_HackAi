@@ -27,3 +27,5 @@ def found_country(i, title, text):
             list_country.append(ent.lemma_)
     return list_country
 
+
+

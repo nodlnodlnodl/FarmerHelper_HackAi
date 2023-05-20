@@ -19,3 +19,5 @@ for i in range(0, 1):
     # Получаем список мест, где хорошо растёт это растение
     list_maybe_cities = found_country(i, list_titles_plants[i], text_about_plant)
     print(f"Список мест роста растения: {list_maybe_cities}")
+
+
