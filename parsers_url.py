@@ -85,5 +85,3 @@ def parse_of_red_book(name):
                 list_of_red_books.append(_.text[:-7])
     print(list_of_red_books)
 
-
-parse_of_red_book('Аир обыкновенный')
