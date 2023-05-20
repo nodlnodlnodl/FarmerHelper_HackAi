@@ -13,4 +13,13 @@ def headers():
         print(clean_text.extract_text())
 
 
+def search_region(city):
+  for i in range(len(search_region.russia)):
+    if city == search_region.russia[i]['city']:
+      return search_region.russia[i]['region']
 
+def search(array):
+    for i in range(len(array)):
+        for j in range(len(search_region.russia)):
+            if array[i] == search_region.russia[j]['region']:
+                return search_region.russia[j]['region']
