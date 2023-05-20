@@ -1,5 +1,6 @@
 import fitz
 import pdfplumber
+import search_region
 
 
 def del_tire(text):
