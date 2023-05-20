@@ -26,5 +26,25 @@ def title_platns():
                 list_text.append(clean_text_str)
         return list_text
 
+def insert_varible_into_table(name):
+    try:
+        sqlite_connection = sl.connect('DB1.db')
+        cursor = sqlite_connection.cursor()
+        print("Подключен к SQLite")
 
+        sqlite_insert_with_param = f"""INSERT INTO Main
+                                      (NameCulture)
+                                      VALUES (?);"""
+        data_tuple = (name,)
+        cursor.execute(sqlite_insert_with_param, data_tuple)
+        sqlite_connection.commit()
+        print("Запись успешно вставлена  таблицу", cursor.rowcount)
+        cursor.close()
+    except sqlite3.Error as error:
+        print("Ошибка при работе с SQLite", error)
+    finally:
+        if sqlite_connection:
+            sqlite_connection.close()
+            print("Соединение с SQLite закрыто")
+            
     # clean_text_list = clean_text_str.split('\n')
