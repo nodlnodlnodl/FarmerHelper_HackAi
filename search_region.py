@@ -10021,10 +10021,3 @@ russia = [
     "city": "Ярославль"
   }
 ]
-
-def search_region(city):
-  for i in range(len(russia)):
-    if city == russia[i]['city']:
-      return russia[i]['region']
-
-print(search_region("Ярославль"))
