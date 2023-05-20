@@ -1,14 +1,13 @@
 from bs4 import BeautifulSoup
-from time import sleep
 import requests
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 import geonamescache
 import datetime
-import re
 
 
+# парсинг сайта с данными о световых днях в разных городах
 def parse_of_daylight_hours(region):
     dict_of_cites = {'Амурская область': 'Благовещенск', 'Архангельская область': 'Архангельск', 'Астраханская област\
 ь': 'Астрахань', 'Белгородская область': 'Белгород', 'Брянская область': 'Брянск', 'Владимирская область': 'Владими\
@@ -38,7 +37,7 @@ def parse_of_daylight_hours(region):
 я автономная область': 'Биробиджан'}
     gc = geonamescache.GeonamesCache()
     city_name = dict_of_cites.get(region)
-    print(city_name)
+    # print(city_name)
     countries = gc.search_cities(city_name, case_sensitive=True)
     id_of_city = countries[0]['geonameid']
     sum_of_day = 0
@@ -68,7 +67,7 @@ def parse_of_daylight_hours(region):
                 avg_winter += d
             mysum += d
             days = mysum.days
-        print(f"месяц {month} дней {days} ")
+        # print(f"месяц {month} дней {days} ")
         sum_of_day += days
     avg_autumn = round(avg_autumn / datetime.timedelta(days=91) * 24)
     avg_summer = round(avg_summer / datetime.timedelta(days=92) * 24)
@@ -78,6 +77,7 @@ def parse_of_daylight_hours(region):
     return info_of_days
 
 
+# парсинг сайта красной книги
 def parse_of_red_book(name):
     url = f'https://www.plantarium.ru/page/search.html'
     browser = webdriver.Chrome(ChromeDriverManager().install())
