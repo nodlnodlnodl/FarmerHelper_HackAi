@@ -97,11 +97,11 @@ def parse_of_red_book(name):
             break
         else:
             pass
-    list_of_red_books = []
+    list_of_red_books = ['да']
     if check_red_book:
         for _ in all_redbooks[1:]:
             if _.text[:-7] not in list_of_red_books:
                 list_of_red_books.append(_.text[:-7])
     else:
-        list_of_red_books = ['Не находится в красной книге']
+        list_of_red_books = ['нет']
     return list_of_red_books
