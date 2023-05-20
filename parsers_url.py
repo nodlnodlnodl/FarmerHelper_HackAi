@@ -69,15 +69,21 @@ def parse_of_red_book(name):
     browser.find_element(By.XPATH, "/html/body/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td[2]/div/a[1]").click()
     soup = BeautifulSoup(browser.page_source, "lxml")
     table = soup.findAll('tr')[1].findAllNext('td')[1]
-    count = 1
     for _ in table.findAll('div', class_='page-section'):
-        count += 1
-        if count == 9:
+        check_red_book = 0
+        if _.find('h2').find('a', href="#redbooks"):
             all_redbooks = _
-            print(all_redbooks.findAll('p'))
+            check_red_book = 1
+            all_redbooks = all_redbooks.findAll('p')
+            break
         else:
             pass
-    sleep(5)
+    list_of_red_books = []
+    if check_red_book:
+        for _ in all_redbooks[1:]:
+            if _.text[:-7] not in list_of_red_books:
+                list_of_red_books.append(_.text[:-7])
+    print(list_of_red_books)
 
 
 parse_of_red_book('Аир обыкновенный')
