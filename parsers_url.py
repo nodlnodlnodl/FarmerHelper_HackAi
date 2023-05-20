@@ -69,8 +69,15 @@ def parse_of_red_book(name):
     browser.find_element(By.XPATH, "/html/body/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td[2]/div/a[1]").click()
     soup = BeautifulSoup(browser.page_source, "lxml")
     table = soup.findAll('tr')[1].findAllNext('td')[1]
-    print(table)
+    count = 1
+    for _ in table.findAll('div', class_='page-section'):
+        count += 1
+        if count == 9:
+            all_redbooks = _
+            print(all_redbooks.findAll('p'))
+        else:
+            pass
     sleep(5)
 
 
-parse_of_red_book('Республика Кабардино-Балкария')
+parse_of_red_book('Аир обыкновенный')
